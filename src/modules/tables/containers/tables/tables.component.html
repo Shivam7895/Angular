@@ -1,0 +1,65 @@
+<sb-layout-dashboard
+    ><sb-dashboard-head title="Tables" [hideBreadcrumbs]="false"></sb-dashboard-head
+    ><sb-card
+        ><div class="card-body">The table below is adapted from ng-bootsrap. For more information, please visit the <a target="_blank" href="https://ng-bootstrap.github.io/#/components/table/overview">ng-bootstrap table documentation</a>.</div></sb-card
+    ><sb-card
+        ><div class="card-header"><fa-icon class="mr-1" ></fa-icon>User List <button type="button"
+            class="btn btn-primary" style="float: right;" (click)="open(content)">Add User</button></div>
+        <div class="card-body"><sb-ng-bootstrap-table [pageSize]="6"></sb-ng-bootstrap-table></div></sb-card
+></sb-layout-dashboard>
+
+<ng-template #content let-c="close" let-d="dismiss" class="model-containt">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form class="form-inline" [formGroup] ="userForm">
+            <div class="form-group mb-2">
+              <label for="staticEmail2" class="sr-only">First Name</label>
+              <input type="text"  class="form-control" formControlName="firstName" id="staticEmail2" placeholder="FirstName">
+              <!-- <div *ngIf="userForm.controls[firstName]?.touched || userForm.controls[firstName]?.dirty || submitted" [class]="uncapitalized ? 'invalid-feedback-uncapitalized' : 'invalid-feedback-resp'"> -->
+                <!-- <div *ngIf="userForm?.controls.firstName?.errors?.required && submitted">rrrrrr</div> -->
+                <span class="msg" *ngIf="userForm?.controls.firstName?.errors?.required && submitted">Please Enter First Name</span>
+            <!-- </div> -->
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" class="sr-only">Last Name</label>
+              <input type="text" class="form-control" id="inputPassword2" formControlName="lastName" placeholder="Last Name">
+              <span class="msg" *ngIf="userForm?.controls.lastName?.errors?.required && submitted">Please Enter Last Name</span>
+
+            </div>
+
+            <div class="form-group mb-2">
+                <label for="staticEmail2" class="sr-only">Email</label>
+                <input type="text"  class="form-control" id="staticEmail2" formControlName="email" placeholder="Mail">
+                <span class="msg" *ngIf="userForm?.controls.email?.errors?.required && submitted">Please Enter Mail</span>
+
+              </div>
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Mob</label>
+                <input type="number" class="form-control" id="inputPassword2" maxlength = "10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" formControlName="phone" placeholder="Mobile Number">
+                <span class="msg" *ngIf="userForm?.controls.phone?.errors?.required && submitted">Please Enter Mobile Number</span>
+
+              </div>
+              <div class="form-group mb-2">
+                <label for="staticEmail2" class="sr-only">Password</label>
+                <input type="password"  class="form-control" id="staticEmail2" formControlName="password" placeholder="Password">
+                <span class="msg" *ngIf="userForm?.controls.password?.errors?.required && submitted">Please Enter Password</span>
+
+              </div>
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Con Password</label>
+                <input type="password" class="form-control" id="inputPassword2" formControlName="password" placeholder="Confirm Password">
+              </div>
+
+              
+            
+          </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="registerUser()">Save</button>
+    </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->

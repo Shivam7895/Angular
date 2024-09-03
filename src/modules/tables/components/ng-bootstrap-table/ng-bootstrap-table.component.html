@@ -1,0 +1,68 @@
+
+<!-- <div class="form-group form-inline">Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3" *ngIf="countryService.loading$ | async">Loading...</span></div> -->
+
+    <!-- <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" sbSortable="firstName" (sort)="onSort($event)"><span>First Name</span><sb-sort-icon *ngIf='sortedColumn === "firstName"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="lastName" (sort)="onSort($event)"><span>lastName</span><sb-sort-icon *ngIf='sortedColumn === "lastName"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="email" (sort)="onSort($event)"><span>email</span><sb-sort-icon *ngIf='sortedColumn === "email"' [direction]="sortedDirection"></sb-sort-icon></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of allUsers, let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td><img class="mr-2"  style="width: 20px" /><ngb-highlight [result]="country.firstName" [term]="countryService.searchTerm"></ngb-highlight></td>
+                <td><ngb-highlight [result]="country.lastName" [term]="countryService.searchTerm"></ngb-highlight></td>
+                <td><ngb-highlight [result]="country.email" [term]="countryService.searchTerm"></ngb-highlight></td>
+            </tr>
+        </tbody>
+    </table> -->
+    <!-- <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="allUsers?.length" [(page)]="countryService.page" [pageSize]="countryService.pageSize"></ngb-pagination
+        >
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="countryService.pageSize">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div> -->
+
+
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+              <th scope="col">Sr No</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name </th>
+              <th scope="col">E-Mail</th>
+              <th scope="col">Mobile Number</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let country of allUsers, let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{country.firstName}}</td>
+            <td>{{country.lastName}}</td>
+            <td>{{country.email}}</td>
+            <td>{{country.phone}}</td>
+            <td>{{country.p}}</td>
+            <td>  <i class="fa fa-pencil-square"></i></td>
+          </tr>
+         
+      </table>
+      <!-- <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="total" [(page)]="countryService.page" [pageSize]="countryService.pageSize" (pageChange)="onPageChange($event)"></ngb-pagination
+        >
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="countryService.pageSize">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div> -->
+
+    
+
+

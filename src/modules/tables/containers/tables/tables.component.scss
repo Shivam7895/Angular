@@ -1,0 +1,21 @@
+@import 'styles/variables.scss';
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    margin-top: 88px !important;
+  }
+
+  .msg{
+    text-align: left;
+    margin-top: 51px;
+    margin-left: -13rem;
+    color: red;
+  }
