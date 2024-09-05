@@ -50,4 +50,14 @@ export class AuthService {
           headers: this.headers,
         });
       }
+
+      securePut(url: string, data?: any, params?: object) {
+        //  this.options = new HttpHeaders(this.headers);
+        //  const apiUrl = `${this.baseUrl}${url}${this.generateQueryString(params)}`;
+          ////console.log("@@@@ apiUrl", apiUrl);
+          const apiUrl = `${this.baseUrl}${url}`
+          return this.http.put(apiUrl, data, {
+            headers: this.headers,
+          });
+        }
 }

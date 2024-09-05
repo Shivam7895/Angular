@@ -43,67 +43,91 @@
                     </tbody>
                   </table>
             </div>
-            
+            <form [formGroup] ="userEditForm">
           <div class="card-body row crd-bdy">
             <div class="form-group col-3">
               <label for="email">FirstName</label>
-              <input id="email" type="email"  class="form-control">
+              <input id="email" type="email" formControlName ="firstName"  class="form-control">
             </div>
             <div class="form-group col-3">
               <label for="password">Last Name</label>
-              <input id="password" type="text" class="form-control">
+              <input id="password" type="text" class="form-control" formControlName ="lastName">
             </div>
             <div class="form-group col-3">
                 <label for="password">Email</label>
-                <input id="password" type="text" class="form-control">
+                <input id="password" type="text" class="form-control" formControlName ="email">
               </div>
               <div class="form-group col-3">
-                <label for="password">Mobile Number</label>
-                <input id="password" type="text" class="form-control">
+                <label for="password">Password</label>
+                <input id="password" type="text" class="form-control" formControlName ="password">
               </div>
            
           </div>
           <div class="card-body row crd-bdy">
             <div class="form-group col-3">
-              <label for="email">Email</label>
-              <input id="email" type="email"  class="form-control">
+              <label for="email">Available Balance</label>
+              <input id="email" type="email"  class="form-control" formControlName ="availableBalance">
             </div>
             <div class="form-group col-3">
-              <label for="password">Password</label>
-              <input id="password" type="text" class="form-control">
+              <label for="password">Account Number</label>
+              <input id="password" type="text" class="form-control" formControlName ="accountNumber">
             </div>
             <div class="form-group col-3">
-                <label for="password">Password</label>
-                <input id="password" type="text" class="form-control">
+                <label for="password">Routing Number</label>
+                <input id="password" type="text" class="form-control" formControlName ="routingNumber">
               </div>
               <div class="form-group col-3">
-                <label for="password">Password</label>
-                <input id="password" type="text" class="form-control">
+                <label for="password">DOB</label>
+                <input id="password" type="text" ngbDatepicker
+                #d="ngbDatepicker"  class="form-control" formControlName ="dob">
+                <i  class="fa fa-calendar cl-icon" (click)="d.toggle()" ></i>
+
               </div>
            
           </div>
           <div class="card-body row crd-bdy">
             <div class="form-group col-3">
-              <label for="email">Email</label>
-              <input id="email" type="email"  class="form-control">
+              <label for="email">SSN</label>
+              <input id="email" type="email"  class="form-control" formControlName ="ssn">
             </div>
             <div class="form-group col-3">
-              <label for="password">Password</label>
-              <input id="password" type="text" class="form-control">
+              <label for="password">Address</label>
+              <input id="password" type="text" class="form-control" formControlName ="address">
             </div>
             <div class="form-group col-3">
-                <label for="password">Password</label>
-                <input id="password" type="text" class="form-control">
+                <label for="password">Mailling Address</label>
+                <input id="password" type="text" class="form-control" formControlName ="mailingAddress">
               </div>
               <div class="form-group col-3">
-                <label for="password">Password</label>
-                <input id="password" type="text" class="form-control">
+                <label for="password">Description</label>
+                <input id="password" type="text" class="form-control" formControlName ="description">
               </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <button type="submit" class="btn btn-success">Submit</button>
+            </div> -->
+          </div>
+          <div class="card-body row crd-bdy">
+            <div class="form-group col-3">
+              <label for="email">Acount Type</label>
+              <input id="email" type="email"  class="form-control" formControlName ="accountType">
+            </div>
+            <div class="form-group col-3">
+              <label for="password">Account Last 4 digit</label>
+              <input id="password" type="text" class="form-control" formControlName ="acountlastfourdigit">
+            </div>
+            <div class="form-group col-3">
+                <label for="password">Mobile Number</label>
+                <input id="password" type="text" class="form-control" formControlName ="phone">
+              </div>
+              <!-- <div class="form-group col-3">
+                <label for="password">Description</label>
+                <input id="password" type="text" class="form-control">
+              </div> -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-success" (click) ="save()" >Submit</button>
             </div>
           </div>
-          
+        </form>
           
           <ng-template #content let-c="close" let-d="dismiss" class="model-containt">
             <div class="modal-header">

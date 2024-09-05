@@ -32,23 +32,24 @@ export class NgBootstrapTableComponent implements OnInit {
     sortedDirection!: string;
 
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
-page:any = 5
+    page: any = 5
     constructor(
         public countryService: CountryService,
         private changeDetectorRef: ChangeDetectorRef,
         private authService: AuthService,
         private modalService: NgbModal,
-        private _FB:FormBuilder,
-        private router:Router
+        private _FB: FormBuilder,
+        private router: Router
     ) { }
 
     ngOnInit() {
-       this.countryService.pageSize = this.pageSize
+        this.countryService.pageSize = this.pageSize
         this.getUser()
     }
 
-    navigateDetailsPage(){
-this.router.navigate(['/dashboard/static'])
+    navigateDetailsPage(data: any) {
+
+        this.router.navigate(['/dashboard/static'], { queryParams: { id: data?._id } })
     }
 
     // onSort({ column, direction }: SortEvent) {
@@ -59,40 +60,40 @@ this.router.navigate(['/dashboard/static'])
 
     // }
 
-    saveData:any
-    userForm :any = FormGroup
-    vv:boolean =false
-    registerUser(){
-        let payload ={
+    saveData: any
+    userForm: any = FormGroup
+    vv: boolean = false
+    registerUser() {
+        let payload = {
             "phone": "stering",
             "email": "pr32@gmail.com",
             "firstName": "string",
             "lastName": "string",
             "password": "secret"
-          }
-          console.log(this.userForm.value, 'valuevaluevalue')
-    this.authService.securePost(ConstUrls.adminAuthApi.register,payload).subscribe((res:any)=>{
-     this.saveData = res
-    },(err:any)=>{
+        }
+        console.log(this.userForm.value, 'valuevaluevalue')
+        this.authService.securePost(ConstUrls.adminAuthApi.register, payload).subscribe((res: any) => {
+            this.saveData = res
+        }, (err: any) => {
 
-    })
-}
+        })
+    }
 
-ngOnInIt(){
-  this.userForm =  this._FB.group({
-        email:[''],
-        firstName:[''],
-        lastName:[''],
-        password:[''],
-        conPass:[''],
-        phone:['']
-    })
-}
+    ngOnInIt() {
+        this.userForm = this._FB.group({
+            email: [''],
+            firstName: [''],
+            lastName: [''],
+            password: [''],
+            conPass: [''],
+            phone: ['']
+        })
+    }
 
     allUsers: any = []
     data: any
-    total:any
-    paginationValue:any = []
+    total: any
+    paginationValue: any = []
     getUser() {
         debugger
         this.authService.secureGet(ConstUrls.usersApi.userList).subscribe((res: any) => {
@@ -111,15 +112,15 @@ ngOnInIt(){
         debugger
         this.page = page;
         this.setPageItems();
-      }
+    }
 
-      setPageItems() {
+    setPageItems() {
         const startIndex = (this.page - 1) * this.pageSize;
         const endIndex = startIndex + this.pageSize;
         this.allUsers = this.paginationValue.slice(startIndex, endIndex);
-      }
+    }
 
-      open(content:any) {
-		this.modalService.open(content);
-	}
+    open(content: any) {
+        this.modalService.open(content);
+    }
 }
