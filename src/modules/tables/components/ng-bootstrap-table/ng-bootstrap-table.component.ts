@@ -8,6 +8,7 @@ import {
     ViewChildren,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@modules/auth/services';
 import { ConstUrls } from '@modules/const-urls';
 import { SBSortableHeaderDirective, SortEvent } from '@modules/tables/directives';
@@ -37,12 +38,17 @@ page:any = 5
         private changeDetectorRef: ChangeDetectorRef,
         private authService: AuthService,
         private modalService: NgbModal,
-        private _FB:FormBuilder
+        private _FB:FormBuilder,
+        private router:Router
     ) { }
 
     ngOnInit() {
        this.countryService.pageSize = this.pageSize
         this.getUser()
+    }
+
+    navigateDetailsPage(){
+this.router.navigate(['/dashboard/static'])
     }
 
     // onSort({ column, direction }: SortEvent) {

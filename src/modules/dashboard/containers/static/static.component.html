@@ -1,8 +1,149 @@
-<sb-layout-dashboard [static]="true"
-    ><sb-dashboard-head title="Dashboard Static" [hideBreadcrumbs]="false"></sb-dashboard-head><sb-dashboard-cards></sb-dashboard-cards><sb-dashboard-charts></sb-dashboard-charts><sb-dashboard-tables></sb-dashboard-tables
+<sb-layout-dashboard [static]="true">
+    
+    <!-- <sb-dashboard-head title="Dashboard Static" [hideBreadcrumbs]="false"></sb-dashboard-head><sb-dashboard-cards></sb-dashboard-cards><sb-dashboard-charts></sb-dashboard-charts><sb-dashboard-tables></sb-dashboard-tables
     ><sb-card
         ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Pie Chart Example</div>
         <div class="card-body"><sb-charts-pie></sb-charts-pie></div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div></sb-card
-    ></sb-layout-dashboard
+    > -->
+
+
+    <form class="form">
+        <div class="card  mt-3">
+            <div class="trans-table">
+                <div>Transaction table</div>
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td> <i class="fa fa-pencil-square" (click)="open(content)"></i>&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+          <div class="card-body row crd-bdy">
+            <div class="form-group col-3">
+              <label for="email">FirstName</label>
+              <input id="email" type="email"  class="form-control">
+            </div>
+            <div class="form-group col-3">
+              <label for="password">Last Name</label>
+              <input id="password" type="text" class="form-control">
+            </div>
+            <div class="form-group col-3">
+                <label for="password">Email</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+              <div class="form-group col-3">
+                <label for="password">Mobile Number</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+           
+          </div>
+          <div class="card-body row crd-bdy">
+            <div class="form-group col-3">
+              <label for="email">Email</label>
+              <input id="email" type="email"  class="form-control">
+            </div>
+            <div class="form-group col-3">
+              <label for="password">Password</label>
+              <input id="password" type="text" class="form-control">
+            </div>
+            <div class="form-group col-3">
+                <label for="password">Password</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+              <div class="form-group col-3">
+                <label for="password">Password</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+           
+          </div>
+          <div class="card-body row crd-bdy">
+            <div class="form-group col-3">
+              <label for="email">Email</label>
+              <input id="email" type="email"  class="form-control">
+            </div>
+            <div class="form-group col-3">
+              <label for="password">Password</label>
+              <input id="password" type="text" class="form-control">
+            </div>
+            <div class="form-group col-3">
+                <label for="password">Password</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+              <div class="form-group col-3">
+                <label for="password">Password</label>
+                <input id="password" type="text" class="form-control">
+              </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div>
+          
+          
+          <ng-template #content let-c="close" let-d="dismiss" class="model-containt">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Add Transaction</h4>
+                <button type="button"  class="btn-close" aria-label="Close" (click)="d('Cross click')"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                    <label for="name">Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-6">
+                    <label for="name">Name</label>
+
+                    <input type="text" class="form-control">
+                  </div>
+
+              </div>
+              <div class="row">
+                <div class="col-6">
+                    <label for="name">Name</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-6">
+                    <label for="name">Name</label>
+
+                    <input type="text" class="form-control">
+                  </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" >Save</button>
+            </div>
+        </ng-template>
+        </div>
+
+      </form>
+
+      
+    </sb-layout-dashboard
 >

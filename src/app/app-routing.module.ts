@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditUserComponent } from '@modules/dashboard/containers/edit-user/edit-user.component';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
         redirectTo: '/auth/login',
+    },
+    {
+        path:'edit-user',component:EditUserComponent
+
     },
     {
         path: 'charts',
