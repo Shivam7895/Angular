@@ -4,7 +4,9 @@
 
 export const environment = {
     production: false,
-    baseUrl: 'http://ec2-18-119-130-193.us-east-2.compute.amazonaws.com/',
+    // baseUrl: 'http://ec2-18-119-130-193.us-east-2.compute.amazonaws.com/',
+    baseUrl: 'http://18.119.130.193/',
+
 };
 
 /*

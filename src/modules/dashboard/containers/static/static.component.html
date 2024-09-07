@@ -10,36 +10,38 @@
 
     <form class="form">
         <div class="card  mt-3">
-            <div class="trans-table">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="open(content)" >Add transaction</button>
+        </div>
+            <div class="trans-table" *ngIf ="transactionList?.length > 0">
                 <div>Transaction table</div>
+               
                 <table class="table table-dark">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
+                        <th scope="col">Sr No</th>
+                        <th scope="col">Transaction Type</th>
+                        <th scope="col">Transaction Date</th>
+                        <th scope="col">Credit</th>
+                        <th scope="col">Debit</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Total Balance</th>
                         <th scope="col">Action</th>
+
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td> <i class="fa fa-pencil-square" (click)="open(content)"></i>&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                      <tr *ngFor ="let trn of transactionList; let i =index">
+                        <td scope="row">{{i+1}}</td>
+                        <td>{{trn.tnx_type == 1 ? 'Pending':'Post Transaction'}}</td>
+                        <td>{{trn.tnx_date | date}}</td>
+                        <td>{{trn.credits}}</td>
+                        <td>{{trn.debits}}</td>
+                        <td>{{trn.description}}</td>
+                        <td>{{trn.total_daily_balance}}</td>
+                        <td> <i class="fa fa-pencil-square" (click)="open(content, trn)"></i></td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                      <!-- &nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i> -->
                     </tbody>
                   </table>
             </div>
@@ -135,33 +137,60 @@
                 <button type="button"  class="btn-close" aria-label="Close" (click)="d('Cross click')"><i class="fa fa-window-close" aria-hidden="true"></i></button>
             </div>
             <div class="modal-body">
+              <form [formGroup] ="transactionForm">
               <div class="row">
                 <div class="col-6">
-                    <label for="name">Name</label>
-                  <input type="text" class="form-control">
+                    <label for="name">Transaction Type</label>
+                  <!-- <input type="text" class="form-control" > -->
+                  <div class="input-group mb-3">
+                    <!-- <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div> -->
+                    <select class="custom-select" id="inputGroupSelect01" formControlName="tnx_type">
+                      
+                      <option value="1">Pending</option>
+                      <option value="2">Post Transaction</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="col-6">
-                    <label for="name">Name</label>
+                    <label for="name">Transaction Date</label>
 
-                    <input type="text" class="form-control">
+                    <input type="date" class="form-control" formControlName="tnx_date">
+                    <!-- <input id="password" type="text" ngbDatepicker
+                    #d="ngbDatepicker"  class="form-control" formControlName ="tnx_date">
+                    <i  class="fa fa-calendar cl-icon" (click)="d.toggle()" ></i> -->
                   </div>
 
               </div>
               <div class="row">
                 <div class="col-6">
-                    <label for="name">Name</label>
-                  <input type="text" class="form-control">
+                    <label for="name">Description</label>
+                  <input type="text" class="form-control" formControlName="description">
                 </div>
                 <div class="col-6">
-                    <label for="name">Name</label>
+                    <label for="name">Total Balance</label>
 
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="total_daily_balance">
                   </div>
 
               </div>
+              <div class="row">
+                <div class="col-6">
+                    <label for="name">Credits</label>
+                  <input type="text" class="form-control" formControlName="credits">
+                </div>
+                <div class="col-6">
+                    <label for="name">Debits</label>
+
+                    <input type="text" class="form-control" formControlName="debits">
+                  </div>
+
+              </div>
+            </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" >Save</button>
+                <button type="button" class="btn btn-outline-secondary" (click) ="addTransaction()" >Save</button>
             </div>
         </ng-template>
         </div>
