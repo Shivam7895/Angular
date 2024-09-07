@@ -129,7 +129,7 @@ transactionUpdatedetails:any
         
         this.authService.securePost(ConstUrls.usersApi.addTrans, this.transactionForm.value).subscribe((res: any) => {
             let addTrans = res
-            if(this.transactionUpdatedetails?.is_trnx_id){
+            if(this.transactionUpdatedetails){
                 alert('Transaction Update successfully')
             }else{
                 alert('Transaction Added successfully')
